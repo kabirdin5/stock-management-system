@@ -33,17 +33,17 @@ class Item:
         return self.sell_price
 
     def __str__(self):
-        return "Item({},{},{},{},{})".format(self.name, self.category, self.perishable,
+        return "({},{},{},{},{})".format(self.name, self.category, self.perishable,
                                              self.stock, self.sell_price)
 
     def __repr__(self):
         return Item(self.name, self.category, self.perishable, self.stock, self.sell_price)
 
     def __eq__(self, other):
-        if not isinstance(other, False):
-            return True
-        else:
-            return False
+        if isinstance(other, Item):
+            return self.name == other.name
+        return False
+
 
     def __hash__(self):
         return Item(self.name, self.category, self.perishable, self.stock, self.sell_price)
