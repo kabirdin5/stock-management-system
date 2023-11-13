@@ -1,3 +1,6 @@
+import csv
+from item import Item
+
 class ItemManager:
 
     def __init__(self, items=None):
@@ -10,7 +13,7 @@ class ItemManager:
         return "ItemManager({})".format(self.items)
 
     def __repr__(self):
-        return str(ItemManager(self.items))
+        return ItemManager(self.items)
 
     def add_item(self, item):
         self.items.append(item)
@@ -20,8 +23,10 @@ class ItemManager:
 
     # Does not work
     def edit_item(self, old_item, new_item):
-        self.items[self.items.index(old_item)] = new_item
-
+        if old_item in self.items:
+            old_item_pos = self.items.index(old_item)
+            self.items.remove(old_item)
+            self.items.insert(old_item_pos, new_item)
 
     def search_by_category(self, category):
         category_items = []
@@ -53,7 +58,6 @@ class ItemManager:
                     discounted_items.append(item)
         return discounted_items
 
-    # Does not work
     def purchase_available_items(self, names, is_member):
         total_cost = 0
         for name in names:
@@ -71,11 +75,36 @@ class ItemManager:
                 total_cost = total_cost * 0.95
         return total_cost
 
-    def load_from_file(self, sample_data):
-        pass
+    def load_from_file(self, file_name):
+        #try:
+        """
+        with open(file_name, "r") as file:
+            reader = csv.reader(file)
+            next(reader)
+            #for row in reader:
+             #   name, category, perishable, stock, sell_price = row
+              #  item = Item(name, category, perishable, stock, sell_price)
+               # self.items.append(item)
+
+            for row in reader:
+                item = Item(row['name'], row['category'], row['perishable'], row['stock'], row['price'])
+                self.items.append(item)
+
+                #print("Items loaded successfully")
+        """
+        current_stock = []
+        with open(file_name) as file:
+            reader = csv.reader(file)
+            next(reader)
+            for row in reader:
+                #item.get_name, item.category, item.perishable, item.stock, item.sell_price = row
+                #item = Item(item.get_name, item.category, item.perishable, item.stock, item.sell_price)
+                current_stock.append(row)
+            return current_stock
 
     def save_to_file(self, file_name):
         pass
+
 
     def list_items(self):
         return self.items

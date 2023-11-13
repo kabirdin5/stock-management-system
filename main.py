@@ -59,10 +59,10 @@ itemsManager = item_manager.list_items()
 
 
 
-"""
-item_manager.edit_item(item3, new_item3)
+
+x = item_manager.edit_item(item3, new_item3)
 print(itemsManager)
-"""
+
 
 
 
@@ -103,3 +103,10 @@ basket = ["Bright Striped Strappy Midi", "Green Textured Frill Sleeve Midi"]
 total_cost = item_manager.purchase_available_items(basket, True)
 print(round(total_cost, 2))
 """
+
+"""
+stock = item_manager.load_from_file("sample_data.csv")
+
+for item in stock:
+    print(item)
+    """
