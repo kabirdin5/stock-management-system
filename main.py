@@ -8,7 +8,7 @@ item1 = Item("Bright Striped Strappy Midi", "SundressClothing",
 item2 = Item("Green Textured Frill Sleeve Midi", "DressClothing",
              False,50, 4.60)
 item3 = Item("Khaki Striped Knitted Jumper", "Clothing",
-             False, 7, 7.22)
+             False,7, 7.22)
 item4 = Item("Sesame Street Black Cookie Monster Graphic T-Shirt", "Clothing",
              False,85, 7.15)
 item5 = Item("Blue Wash Turn Up Denim Shorts", "Clothing",
@@ -34,7 +34,7 @@ item14 = Item("Whittiers by Danielle Steel", "Books - Paperback",
 item15 = Item("Zog by Julia Donaldson", "Books - Paperback",
               False, 19, 9.32)
 new_item3 = Item("Khaki Striped Knitted Jumper", "Clothing",
-             False, 7, 7.99)
+             False,7, 7.99)
 
 item_manager.add_item(item1)
 item_manager.add_item(item2)
@@ -58,10 +58,12 @@ item_manager.add_item(item15)
 itemsManager = item_manager.list_items()
 
 
+
 """
 item_manager.edit_item(item3, new_item3)
 print(itemsManager)
 """
+
 
 
 """
@@ -96,11 +98,8 @@ for item in items_to_discount:
     print(item)
 """
 
-
-
-
-basket = [item1, item2, item3]
-total = item_manager.purchase_available_items([item1, item2, item3], True)
-if total:
-    for item in total:
-        print(item)
+"""
+basket = ["Bright Striped Strappy Midi", "Green Textured Frill Sleeve Midi"]
+total_cost = item_manager.purchase_available_items(basket, True)
+print(round(total_cost, 2))
+"""

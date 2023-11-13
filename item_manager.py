@@ -10,7 +10,7 @@ class ItemManager:
         return "ItemManager({})".format(self.items)
 
     def __repr__(self):
-        return ItemManager(self.items)
+        return str(ItemManager(self.items))
 
     def add_item(self, item):
         self.items.append(item)
@@ -20,12 +20,6 @@ class ItemManager:
 
     # Does not work
     def edit_item(self, old_item, new_item):
-        """
-        for item in self.items:
-            if item == old_item:
-                item = new_item
-        return self.items
-"""
         self.items[self.items.index(old_item)] = new_item
 
 
@@ -61,24 +55,21 @@ class ItemManager:
 
     # Does not work
     def purchase_available_items(self, names, is_member):
-        purchased_items = []
         total_cost = 0
         for name in names:
             for item in self.items:
-                if item.name == name and item.stock > 0:
-                    item.stock = item.stock - 1
-                    total_cost = total_cost + item.sell_price
-                    print(purchased_items)
-                else:
-                    print("Item is out of stock")
+                if item.name == name:
+                    if item.stock > 0:
+                        item.stock = item.stock - 1
+                        total_cost = total_cost + item.sell_price
+                    elif item.stock == 0:
+                        print(name + " is out of stock")
         if is_member:
             if total_cost >= 50:
                 total_cost = total_cost * 0.9
             else:
                 total_cost = total_cost * 0.95
-        return purchased_items and total_cost
-
-
+        return total_cost
 
     def load_from_file(self, sample_data):
         pass
