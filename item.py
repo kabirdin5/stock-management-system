@@ -37,7 +37,7 @@ class Item:
                                              self.stock, self.sell_price)
 
     def __repr__(self):
-        return Item(self.name, self.category, self.perishable, self.stock, self.sell_price)
+        return str(Item(self.name, self.category, self.perishable, self.stock, self.sell_price))
 
     def __eq__(self, other):
         if isinstance(other, Item):

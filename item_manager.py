@@ -20,10 +20,13 @@ class ItemManager:
 
     # Does not work
     def edit_item(self, old_item, new_item):
-        for item in range(len(self.items)):
+        """
+        for item in self.items:
             if item == old_item:
-                self.items = new_item
+                item = new_item
         return self.items
+"""
+        self.items[self.items.index(old_item)] = new_item
 
 
     def search_by_category(self, category):
@@ -65,6 +68,7 @@ class ItemManager:
                 if item.name == name and item.stock > 0:
                     item.stock = item.stock - 1
                     total_cost = total_cost + item.sell_price
+                    print(purchased_items)
                 else:
                     print("Item is out of stock")
         if is_member:
@@ -76,7 +80,7 @@ class ItemManager:
 
 
 
-    def load_from_file(self, file_name):
+    def load_from_file(self, sample_data):
         pass
 
     def save_to_file(self, file_name):
