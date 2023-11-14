@@ -76,30 +76,14 @@ class ItemManager:
         return total_cost
 
     def load_from_file(self, file_name):
-        #try:
-        """
-        with open(file_name, "r") as file:
-            reader = csv.reader(file)
-            next(reader)
-            #for row in reader:
-             #   name, category, perishable, stock, sell_price = row
-              #  item = Item(name, category, perishable, stock, sell_price)
-               # self.items.append(item)
-
-            for row in reader:
-                item = Item(row['name'], row['category'], row['perishable'], row['stock'], row['price'])
-                self.items.append(item)
-
-                #print("Items loaded successfully")
-        """
         current_stock = []
         with open(file_name) as file:
             reader = csv.reader(file)
             next(reader)
             for row in reader:
-                #item.get_name, item.category, item.perishable, item.stock, item.sell_price = row
-                #item = Item(item.get_name, item.category, item.perishable, item.stock, item.sell_price)
-                current_stock.append(row)
+                [name, category, perishable, stock, sell_price] = row[0], row[1], bool(row[2]), int(row[3]), float(row[4])
+                item = Item(name, category, perishable, stock, sell_price)
+                current_stock.append(item)
             return current_stock
 
     def save_to_file(self, file_name):

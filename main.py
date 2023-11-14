@@ -54,15 +54,12 @@ item_manager.add_item(item15)
 
 
 
-
+"""
 itemsManager = item_manager.list_items()
-
-
-
 
 x = item_manager.edit_item(item3, new_item3)
 print(itemsManager)
-
+"""
 
 
 
@@ -104,9 +101,7 @@ total_cost = item_manager.purchase_available_items(basket, True)
 print(round(total_cost, 2))
 """
 
-"""
-stock = item_manager.load_from_file("sample_data.csv")
 
-for item in stock:
+basket = item_manager.load_from_file("sample_data.csv")
+for item in basket:
     print(item)
-    """
