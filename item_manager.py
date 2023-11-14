@@ -87,8 +87,7 @@ class ItemManager:
             return current_stock
 
     def save_to_file(self, file_name):
-        pass
-
+        #with open(file_name)
 
     def list_items(self):
         return self.items
