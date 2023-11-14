@@ -3,6 +3,7 @@ from item_manager import ItemManager
 
 item_manager = ItemManager()
 
+"""
 item1 = Item("Bright Striped Strappy Midi", "SundressClothing",
              False,66, 6.72)
 item2 = Item("Green Textured Frill Sleeve Midi", "DressClothing",
@@ -51,7 +52,7 @@ item_manager.add_item(item12)
 item_manager.add_item(item13)
 item_manager.add_item(item14)
 item_manager.add_item(item15)
-
+"""
 
 
 """
@@ -102,6 +103,19 @@ print(round(total_cost, 2))
 """
 
 
+"""
 basket = item_manager.load_from_file("sample_data.csv")
 for item in basket:
     print(item)
+"""
+
+item_manager.load_from_file("sample_data.csv")
+
+new_item = Item("cool name", "nice category", False, 23, 45.12)
+
+item_manager.add_item(new_item)
+
+new_items = item_manager.load_from_file("sample_data.csv")
+
+for item in new_items:
+    print(f"Name: {item.get_name()}, Category: {item.get_category()}, Perishable: {item.get_perishable()}, Stock: {item.get_stock()}, Sell Price: £{item.get_sell_price():.2f}")

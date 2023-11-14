@@ -31,21 +31,21 @@ class ItemManager:
     def search_by_category(self, category):
         category_items = []
         for item in self.items:
-            if item.category == category:
+            if item.get_category() == category:
                 category_items.append(item)
         return category_items
 
     def search_by_perishable(self, perishable):
         perishable_items = []
         for item in self.items:
-            if item.perishable == perishable:
+            if item.get_perishable() == perishable:
                 perishable_items.append(item)
         return perishable_items
 
     def search_by_sell_price(self, sell_price):
         priced_items = []
         for item in self.items:
-            if item.sell_price == sell_price:
+            if item.get_sell_price() == sell_price:
                 priced_items.append(item)
         return priced_items
 
@@ -54,7 +54,7 @@ class ItemManager:
         for name in names:
             for item in self.items:
                 if item.name == name:
-                    item.sell_price = item.sell_price * (1 - (discount / 100))
+                    item.sell_price = item.get_sell_price() * (1 - (discount / 100))
                     discounted_items.append(item)
         return discounted_items
 
@@ -62,11 +62,11 @@ class ItemManager:
         total_cost = 0
         for name in names:
             for item in self.items:
-                if item.name == name:
-                    if item.stock > 0:
-                        item.stock = item.stock - 1
-                        total_cost = total_cost + item.sell_price
-                    elif item.stock == 0:
+                if item.get_name() == name:
+                    if item.get_stock() > 0:
+                        item.stock = item.get_stock() - 1
+                        total_cost = total_cost + item.get_sell_price()
+                    elif item.get_stock() == 0:
                         print(name + " is out of stock")
         if is_member:
             if total_cost >= 50:
@@ -87,7 +87,14 @@ class ItemManager:
             return current_stock
 
     def save_to_file(self, file_name):
-        #with open(file_name)
+        with open(file_name, "w", newline="") as file:
+            writer = csv.writer(file)
+            writer.writerow(["name", "category", "perishable", "stock", "sell_price"])
+            for item in self.items:
+            #for item in range(0, len(self.items)):
+                writer.writerow([self.items[item].get_name(), self.items[item].get_category(),
+                                 self.items[item].get_perishable(), self.items[item].get_stock(),
+                                 self.items[item].get_sell_price()])
 
     def list_items(self):
         return self.items
