@@ -15,7 +15,7 @@ class Item:
         self.stock = stock
         if not isinstance(sell_price, float):
             raise TypeError("Selling price of item must be a float")
-        self.sell_price = sell_price
+        self.sell_price = round(sell_price, 2)
 
     def get_name(self):
         return self.name

@@ -3,119 +3,154 @@ from item_manager import ItemManager
 
 item_manager = ItemManager()
 
-"""
-item1 = Item("Bright Striped Strappy Midi", "SundressClothing",
-             False,66, 6.72)
-item2 = Item("Green Textured Frill Sleeve Midi", "DressClothing",
-             False,50, 4.60)
-item3 = Item("Khaki Striped Knitted Jumper", "Clothing",
-             False,7, 7.22)
-item4 = Item("Sesame Street Black Cookie Monster Graphic T-Shirt", "Clothing",
-             False,85, 7.15)
-item5 = Item("Blue Wash Turn Up Denim Shorts", "Clothing",
-             False,58, 4.15)
-item6 = Item("Vegan Creamy Garlic Mushroom", "SliceGrocery - Chilled",
-             True,93, 0.40)
-item7 = Item("Fat Free Banana and Custard Yogurt", "Grocery - Chilled",
-             True,13, 5.19)
-item8 = Item("Chicago Town BBQ Crust Deep Dish Memphis Style BBQ Pork", "Grocery - Frozen",
-             True,24, 3.14)
-item9 = Item("4 Frozen Baked Jacket Potatoes", "Grocery - Frozen",
-             True, 47, 7.36)
-item10 = Item("Crispy Sweet Potato Fries", "Grocery - Frozen",
-              True, 98, 2.99)
-item11 = Item("Harry Potter and the Order of the Phoenix by J. K. Rowling", "Books - Paperback",
-              False, 62, 9.13)
-item12 = Item("We're Going on a Ghost Hunt by Martha Mumford", "Books - Paperback",
-              False, 79, 3.59)
-item13 = Item("There's a Dinosaur in Your Book by Tom Fletcher", "Books - Paperback",
-              False, 60, 0.59)
-item14 = Item("Whittiers by Danielle Steel", "Books - Paperback",
-              False,  63, 4.03)
-item15 = Item("Zog by Julia Donaldson", "Books - Paperback",
-              False, 19, 9.32)
-new_item3 = Item("Khaki Striped Knitted Jumper", "Clothing",
-             False,7, 7.99)
+print("Testing Section\n")
 
-item_manager.add_item(item1)
-item_manager.add_item(item2)
-item_manager.add_item(item3)
-item_manager.add_item(item4)
-item_manager.add_item(item5)
-item_manager.add_item(item6)
-item_manager.add_item(item7)
-item_manager.add_item(item8)
-item_manager.add_item(item9)
-item_manager.add_item(item10)
-item_manager.add_item(item11)
-item_manager.add_item(item12)
-item_manager.add_item(item13)
-item_manager.add_item(item14)
-item_manager.add_item(item15)
-"""
+item1 = Item("Apple", "Fruit", True, 12, 0.85)
+item2 = Item("Dragon Fruit", "Fruit", True, 8, 1.29)
+item3 = Item("Carrot", "Vegetable", True, 12, 1.19)
+item4 = Item("Plain black t-shirt", "Clothing", False, 16, 12.99)
+
+print("These are the items that we will be using in testing:")
+print(item1)
+print(item2)
+print(item3)
+print(item4)
+print("\nEach item variable contains the values: \n(name, category, perishable, stock, price)")
+print("\nWe will go through the different methods to test if they work according to specification...")
 
 
-"""
-itemsManager = item_manager.list_items()
+def test_get_name():
+    print("Test Case: get_name()")
+    try:
+        print("Name of item1: " + Item.get_name(item1))
+        print("Name of item2: " + Item.get_name(item2))
+        print("Name of item3: " + Item.get_name(item3))
+        print("Name of item4: " + Item.get_name(item4))
+    except:
+        print("Failed unexpectedly")
 
-x = item_manager.edit_item(item3, new_item3)
-print(itemsManager)
-"""
-
-
-
-"""
-categorised_items = item_manager.search_by_category("Clothing")
-
-for item in categorised_items:
-    print(item)
-"""
-
-
-"""
-perishable_items = item_manager.search_by_perishable(False)
-
-for item in perishable_items:
-    print(item)
-"""
-
-
-"""
-searched_price = item_manager.search_by_sell_price(4.03)
-
-for item in searched_price:
-    print(item)
-"""
+def test_fail_get_name():
+    print("\nTest Case: Failed get_name()")
+    try:
+        # Testing an undefined item
+        print("Name of item5: " + Item.get_name(item5))
+        # Testing with a non-string attribute
+        item5 = Item(10, "Clothing", False,
+                      14, 11.99)
+        print("Name of item5: " + Item.get_name(item5))
+    except:
+        print("Failed as expected")
+    else:
+        print("Should have failed")
 
 
-"""
-x = ["Sesame Street Black Cookie Monster Graphic T-Shirt", "Vegan Creamy Garlic Mushroom", "Fat Free Banana and Custard Yogurt"]
-items_to_discount = item_manager.apply_discount_to_items(x, 10)
+def test_get_category():
+    print("\nTest Case: get_category()")
+    try:
+        print("Category of item1: " + Item.get_category(item1))
+        print("Category of item2: " + Item.get_category(item1))
+        print("Category of item3: " + Item.get_category(item1))
+        print("Category of item4: " + Item.get_category(item1))
+    except:
+        print("Failed unexpectedly")
 
-for item in items_to_discount:
-    print(item)
-"""
+def test_fail_get_category():
+    print("\nTest Case: Failed get_category()")
+    try:
+        # Testing an undefined item
+        print("Category of item5: " + Item.get_category(item5))
+        # Testing with a non-string attribute
+        item5 = Item("Plain white t-shirt", 10, False,
+                     14, 11.99)
+        print("Category of item5: " + Item.get_name(item5))
+    except:
+        print("Failed as expected")
+    else:
+        print("Should have failed")
 
-"""
-basket = ["Bright Striped Strappy Midi", "Green Textured Frill Sleeve Midi"]
-total_cost = item_manager.purchase_available_items(basket, True)
-print(round(total_cost, 2))
-"""
+
+def test_get_perishable():
+    print("\nTest Case: get_perishable()")
+    try:
+        print(f"Perishable of item1: {Item.get_perishable(item1)} ")
+        print(f"Perishable of item2: {Item.get_perishable(item2)} ")
+        print(f"Perishable of item3: {Item.get_perishable(item3)} ")
+        print(f"Perishable of item4: {Item.get_perishable(item4)} ")
+    except:
+        print("Failed unexpectedly")
+
+def test_fail_get_perishable():
+    print("\nTest Case: Failed get_perishable()")
+    try:
+        # Testing an undefined item
+        print("Perishable of item5: " + Item.get_perishable(item5))
+        # Testing with a string instead of a boolean
+        item5 = Item("Plain white t-shirt", "Clothing", "False",
+                     14, 11.99)
+        print("Perishable of item5: " + Item.get_name(item5))
+    except:
+        print("Failed as expected")
+    else:
+        print("Should have failed")
 
 
-"""
-basket = item_manager.load_from_file("sample_data.csv")
-for item in basket:
-    print(item)
-"""
+def test_get_stock():
+    print("\nTest Case: get_stock()")
+    try:
+        print(f"Stock of item1: {Item.get_stock(item1)}")
+        print(f"Stock of item2: {Item.get_stock(item2)}")
+        print(f"Stock of item3: {Item.get_stock(item3)}")
+        print(f"Stock of item4: {Item.get_stock(item4)}")
+    except:
+        print("Failed unexpectedly")
 
-item_manager.load_from_file("sample_data.csv")
+def test_fail_get_stock():
+    print("\nTest Case: Failed get_stock()")
+    try:
+        # Testing an undefined item
+        print("Stock of item5: " + Item.get_category(item5))
+        # Testing with a string instead of an integer
+        item5 = Item("Plain white t-shirt", "Clothing", False,
+                     "14", 11.99)
+        print("Stock of item5: " + Item.get_name(item5))
+    except:
+        print("Failed as expected")
+    else:
+        print("Should have failed")
 
-new_item = Item("cool name", "nice category", False, 23, 45.12)
 
-item_manager.add_item(new_item)
+def test_get_sell_price():
+    print("\nTest Case: get_sell_price()")
+    try:
+        print(f"Sell_price of item1: {Item.get_sell_price(item1)}")
+        print(f"Sell_price of item2: {Item.get_sell_price(item2)}")
+        print(f"Sell_price of item3: {Item.get_sell_price(item3)}")
+        print(f"Sell_price of item4: {Item.get_sell_price(item4)}")
+    except:
+        print("Failed unexpectedly")
 
-new_items = item_manager.load_from_file("sample_data.csv")
+def test_fail_get_sell_price():
+    print("\nTest Case: Failed get_sell_price()")
+    try:
+        # Testing an undefined item
+        print("Sell_price of item5: " + Item.get_sell_price(item5))
+        # Testing with a string instead of an integer
+        item5 = Item("Plain white t-shirt", "Clothing", False,
+                     14, "11.99")
+        print("Sell_price of item5: " + Item.get_sell_price(item5))
+    except:
+        print("Failed as expected")
+    else:
+        print("Should have failed")
 
-for item in new_items:
-    print(f"Name: {item.get_name()}, Category: {item.get_category()}, Perishable: {item.get_perishable()}, Stock: {item.get_stock()}, Sell Price: £{item.get_sell_price():.2f}")
+
+test_get_name()
+test_fail_get_name()
+test_get_category()
+test_fail_get_category()
+test_get_perishable()
+test_fail_get_perishable()
+test_get_stock()
+test_fail_get_stock()
+test_get_sell_price()
+test_fail_get_sell_price()
