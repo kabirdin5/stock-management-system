@@ -239,6 +239,15 @@ def test_fail__hash__():
         print("Should have failed")
 
 
+def test_get_items():
+    print("\nTest Case: get_items()")
+    try:
+        items = [item1, item2, item3, item4]
+        print(f"{ItemManager.get_items(item2)}")
+    except:
+        print("Failed unexpectedly")
+
+
 test_get_name()
 test_fail_get_name()
 test_get_category()
@@ -257,3 +266,4 @@ test__eq__()
 test_fail__eq__()
 test__hash__()
 test_fail__hash__()
+test_get_items()
