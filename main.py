@@ -218,6 +218,25 @@ def test_fail__eq__():
         print("Should have failed")
 
 
+def test__hash__():
+    print("\nTest Case: __hash__()")
+    try:
+        print(f"Item 1 using __hash__(): {Item.__hash__(item1)}")
+        print(f"Item 2 using __hash__(): {Item.__hash__(item2)}")
+        print(f"Item 3 using __hash__(): {Item.__hash__(item3)}")
+        print(f"Item 4 using __hash__(): {Item.__hash__(item4)}")
+    except:
+        print("Failed unexpectedly")
+
+def test_fail__hash__():
+    print("\nTest Case: Failed __hash__()")
+    try:
+        # Testing an undefined item
+        print(f"Item 5 using __hash__(): {Item.__hash__(item5)}")
+    except:
+        print("Failed as expected")
+    else:
+        print("Should have failed")
 
 
 test_get_name()
@@ -236,3 +255,5 @@ test__repr__()
 test_fail__repr__()
 test__eq__()
 test_fail__eq__()
+test__hash__()
+test_fail__hash__()
