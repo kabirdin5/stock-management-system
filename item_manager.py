@@ -4,7 +4,8 @@ from item import Item
 class ItemManager:
 
     def __init__(self, items=None):
-        self.items = []
+        if items == None:
+            self.items = []
 
     def get_items(self):
         return self.items
@@ -51,12 +52,13 @@ class ItemManager:
 
     def apply_discount_to_items(self, names, discount):
         discounted_items = []
-        for name in names:
-            for item in self.items:
-                if item.name == name:
-                    item.sell_price = item.get_sell_price() * (1 - (discount / 100))
-                    discounted_items.append(item)
-        return discounted_items
+        if 0 <= discount <= 50:
+            for name in names:
+                for item in self.items:
+                    if item.name == name:
+                        item.sell_price = item.get_sell_price() * (1 - (discount / 100))
+                        discounted_items.append(item)
+            return discounted_items
 
     def purchase_available_items(self, names, is_member):
         total_cost = 0

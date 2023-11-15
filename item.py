@@ -27,10 +27,12 @@ class Item:
         return self.perishable
 
     def get_stock(self):
-        return self.stock
+        if self.stock >= 0:
+            return self.stock
 
     def get_sell_price(self):
-        return self.sell_price
+        if self.sell_price >= 0:
+            return self.sell_price
 
     def __str__(self):
         return "({},{},{},{},{})".format(self.name, self.category, self.perishable,
@@ -43,7 +45,6 @@ class Item:
         if isinstance(other, Item):
             return self.name == other.name
         return False
-
 
     def __hash__(self):
         return Item(self.name, self.category, self.perishable, self.stock, self.sell_price)

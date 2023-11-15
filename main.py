@@ -108,11 +108,15 @@ def test_fail_get_stock():
     print("\nTest Case: Failed get_stock()")
     try:
         # Testing an undefined item
-        print("Stock of item5: " + Item.get_category(item5))
+        #print("Stock of item5: " + Item.get_category(item5))
         # Testing with a string instead of an integer
-        item5 = Item("Plain white t-shirt", "Clothing", False,
-                     "14", 11.99)
-        print("Stock of item5: " + Item.get_name(item5))
+        #item5 = Item("Plain white t-shirt", "Clothing", False,
+         #            "14", 11.99)
+        #print("Stock of item5: " + Item.get_name(item5))
+        # Testing with a value below 0
+        new_item5 = Item("Plain white t-shirt", "Clothing", False,
+                     -5, 11.99)
+        print("Stock of new_item5: " + Item.get_name(new_item5))
     except:
         print("Failed as expected")
     else:
@@ -144,6 +148,78 @@ def test_fail_get_sell_price():
         print("Should have failed")
 
 
+def test__str__():
+    print("\nTest Case: __str__()")
+    try:
+        print(f"Item 1 using __str__(): {Item.__str__(item1)}")
+        print(f"Item 2 using __str__(): {Item.__str__(item2)}")
+        print(f"Item 3 using __str__(): {Item.__str__(item3)}")
+        print(f"Item 4 using __str__(): {Item.__str__(item4)}")
+    except:
+        print("Failed unexpectedly")
+
+def test_fail__str__():
+    print("\nTest Case: Failed __str__()")
+    try:
+        # Testing an undefined item
+        print(f"Item 5 using __str__(): {Item.__str__(item5)}")
+    except:
+        print("Failed as expected")
+    else:
+        print("Should have failed")
+
+
+def test__repr__():
+    print("\nTest Case: __repr__()")
+    try:
+        print(f"Item 1 using __repr__(): {Item.__repr__(item1)}")
+        print(f"Item 2 using __repr__(): {Item.__repr__(item2)}")
+        print(f"Item 3 using __repr__(): {Item.__repr__(item3)}")
+        print(f"Item 4 using __repr__(): {Item.__repr__(item4)}")
+    except:
+        print("Failed unexpectedly")
+
+def test_fail__repr__():
+    print("\nTest Case: Failed __repr__()")
+    try:
+        # Testing an undefined item
+        print(f"Item 5 using __repr__(): {Item.__repr__(item5)}")
+    except:
+        print("Failed as expected")
+    else:
+        print("Should have failed")
+
+
+def test__eq__():
+    print("\nTest Case: __eq__()")
+    try:
+        # Testing to see if both items have the same name
+        item1_1 = item1 = Item("Apple", "Fruit", True, 10, 0.82)
+        print(f"item1_1: {item1_1}")
+        # Test to expect 'True'
+        print(f"Comparing item 1 to item1_1: {Item.__eq__(item1, item1_1)}")
+        # Test to expect 'False'
+        print(f"Comparing item1 to item2: {Item.__eq__(item1, item2)}")
+    except:
+        print("Failed unexpectedly")
+
+def test_fail__eq__():
+    print("\nTest Case: Failed __eq__()")
+    try:
+        # Testing to compare a defined item with an undefined item
+        print(f"Comparing item1 to item5: {Item.__eq__(item1, item5)}")
+        # Testing to compare 3 defined items
+        print(f"Comparing item1, item2 and item3 with each other: {Item.__eq__(item1, item2, item3)}")
+        # Testing to see if the item compares with itself
+        print(f"Comparing item1 with itself: {Item.__eq__(item1)}")
+    except:
+        print("Failed as expected")
+    else:
+        print("Should have failed")
+
+
+
+
 test_get_name()
 test_fail_get_name()
 test_get_category()
@@ -154,3 +230,9 @@ test_get_stock()
 test_fail_get_stock()
 test_get_sell_price()
 test_fail_get_sell_price()
+test__str__()
+test_fail__str__()
+test__repr__()
+test_fail__repr__()
+test__eq__()
+test_fail__eq__()
