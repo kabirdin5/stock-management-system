@@ -58,9 +58,16 @@ item_manager.add_item(item15)
 
 itemsManager = item_manager.list_items()
 
+for item in itemsManager:
+    print(item)
+
+#item_manager.save_to_file("sample_data.csv")
+
+"""
+
 item_manager.edit_item(item3, new_item3)
 print(itemsManager)
-
+"""
 
 
 
@@ -108,16 +115,19 @@ basket = item_manager.load_from_file("sample_data.csv")
 for item in basket:
     print(item)
 """
-
 """
+itemsManager = item_manager.list_items()
+
 item_manager.load_from_file("sample_data.csv")
 
 new_item = Item("cool name", "nice category", False, 23, 45.12)
+new_item2 = Item("cool name2", "nice category", False, 23, 45.12)
 
 item_manager.add_item(new_item)
+item_manager.add_item(new_item2)
 
-new_items = item_manager.load_from_file("sample_data.csv")
+new_items = item_manager.save_to_file("new.csv")
 
-for item in new_items:
-    print(f"Name: {item.get_name()}, Category: {item.get_category()}, Perishable: {item.get_perishable()}, Stock: {item.get_stock()}, Sell Price: £{item.get_sell_price():.2f}")
-    """
+#for item in new_items:
+#    print(f"Name: {item.get_name()}, Category: {item.get_category()}, Perishable: {item.get_perishable()}, Stock: {item.get_stock()}, Sell Price: £{item.get_sell_price():.2f}")
+"""

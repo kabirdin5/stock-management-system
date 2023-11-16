@@ -92,8 +92,7 @@ class ItemManager:
         with open(file_name, "w", newline="") as file:
             writer = csv.writer(file)
             writer.writerow(["name", "category", "perishable", "stock", "sell_price"])
-            for item in self.items:
-            #for item in range(0, len(self.items)):
+            for item in range(0, len(self.items)):
                 writer.writerow([self.items[item].get_name(), self.items[item].get_category(),
                                  self.items[item].get_perishable(), self.items[item].get_stock(),
                                  self.items[item].get_sell_price()])

@@ -2,6 +2,7 @@ from item import Item
 from item_manager import ItemManager
 
 item_manager = ItemManager()
+ItemsManager = item_manager.list_items()
 
 print("Testing Section\n")
 
@@ -108,14 +109,14 @@ def test_fail_get_stock():
     print("\nTest Case: Failed get_stock()")
     try:
         # Testing an undefined item
-        #print("Stock of item5: " + Item.get_category(item5))
+        print("Stock of item5: " + Item.get_category(item5))
         # Testing with a string instead of an integer
-        #item5 = Item("Plain white t-shirt", "Clothing", False,
-         #            "14", 11.99)
-        #print("Stock of item5: " + Item.get_name(item5))
+        item5 = Item("Plain white t-shirt", "Clothing", False,
+                     "14", 11.99)
+        print("Stock of item5: " + Item.get_name(item5))
         # Testing with a value below 0
         new_item5 = Item("Plain white t-shirt", "Clothing", False,
-                     -5, 11.99)
+                    -5, 11.99)
         print("Stock of new_item5: " + Item.get_name(new_item5))
     except:
         print("Failed as expected")
@@ -239,13 +240,34 @@ def test_fail__hash__():
         print("Should have failed")
 
 
-def test_get_items():
-    print("\nTest Case: get_items()")
+def test_add_item():
+    print("\nTest Case: add_item")
     try:
-        items = [item1, item2, item3, item4]
-        print(f"{ItemManager.get_items(item2)}")
+        item_manager.add_item(item1)
+        item_manager.add_item(item2)
+        item_manager.add_item(item3)
+        item_manager.add_item(item4)
+        print(ItemsManager)
     except:
         print("Failed unexpectedly")
+
+def test_fail_add_item():
+    print("\nTest Case: Failed add_item")
+    try:
+        item_manager.add_item(item1)
+        item_manager.add_item(item1)
+        item_manager.add_item(item3)
+        item_manager.add_item(item4)
+        # Adding an undefined item
+        item_manager.add_item(item5)
+        print(ItemsManager)
+    except:
+        print("Failed expectedly")
+    else:
+        print("Should have failed")
+
+
+
 
 
 test_get_name()
@@ -266,4 +288,5 @@ test__eq__()
 test_fail__eq__()
 test__hash__()
 test_fail__hash__()
-test_get_items()
+test_add_item()
+test_fail_add_item()

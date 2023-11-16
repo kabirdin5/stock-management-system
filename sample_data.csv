@@ -1,10 +1,10 @@
 name,category,perishable,stock,sell_price
-Bright Striped Strappy Midi Sundress,Clothing,False,66,6.72
-Green Textured Frill Sleeve Midi Dress,Clothing,False,50,4.60
+Bright Striped Strappy Midi,SundressClothing,False,66,6.72
+Green Textured Frill Sleeve Midi,DressClothing,False,50,4.6
 Khaki Striped Knitted Jumper,Clothing,False,7,7.22
 Sesame Street Black Cookie Monster Graphic T-Shirt,Clothing,False,85,7.15
 Blue Wash Turn Up Denim Shorts,Clothing,False,58,4.15
-Vegan Creamy Garlic Mushroom Slice,Grocery - Chilled,True,93,0.40
+Vegan Creamy Garlic Mushroom,SliceGrocery - Chilled,True,93,0.4
 Fat Free Banana and Custard Yogurt,Grocery - Chilled,True,13,5.19
 Chicago Town BBQ Crust Deep Dish Memphis Style BBQ Pork,Grocery - Frozen,True,24,3.14
 4 Frozen Baked Jacket Potatoes,Grocery - Frozen,True,47,7.36
