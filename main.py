@@ -600,7 +600,7 @@ def test_save_to_file():
         print(item3)
         print(item4)
         print("To ensure that the test is working correctly, you need to open the testing_data file and should find")
-        print("item1, item2, item3 and item4 displayed, included with the headlines.")
+        print("item1, item2, item3 and item4 displayed, included with their headlines.")
         ItemsManager.clear()
         item_manager.add_item(item1)
         item_manager.add_item(item2)

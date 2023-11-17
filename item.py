@@ -67,7 +67,7 @@ class Item:
 
     def __eq__(self, other):
         """
-        Checks if there are 2 items equal to each other, based on their names
+        Checks if there are two items equal to each other, based on their names
         :param other: represents another item to compare
         :return: False if items are not equal, True if items are equal
         """

@@ -1,4 +1,4 @@
-import csv  # Imports a module used for reading and writing the CSV files
+import csv  # Imports a module used for reading and writing the csv files
 from item import Item  # Imports the Item class from the item.py file
 
 class ItemManager:
