@@ -18,11 +18,11 @@ class Item:
         self.category = category
         # Checks if perishable is a boolean value
         if not isinstance(perishable, bool):
-            raise TypeError("Perishable of item must be a boolean value")
+            raise TypeError("Perishable status of item must be a boolean value")
         self.perishable = perishable
         # Checks if stock is an integer
         if not isinstance(stock, int):
-            raise TypeError("Stock of item must be an integer")
+            raise TypeError("Stock amount of item must be an integer")
         self.stock = stock
         # Checks if sell_price is a float
         if not isinstance(sell_price, float):
