@@ -1,7 +1,6 @@
 import csv  # Imports a module used for reading and writing the CSV files
 from item import Item  # Imports the Item class from the item.py file
 
-
 class ItemManager:
     # Creates the ItemManager class
     def __init__(self, items=None):

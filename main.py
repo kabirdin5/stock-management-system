@@ -1,6 +1,11 @@
 from item import Item
 from item_manager import ItemManager
 
+"""
+All of testing adapted from:
+https://ncl.instructure.com/courses/49935/files/7493358?module_item_id=3031874&fd_cookie_set=1
+"""
+
 item_manager = ItemManager()
 ItemsManager = item_manager.get_items()
 
@@ -154,10 +159,10 @@ def test_get_sell_price():
     print("\nTest Case: get_sell_price()")
     print("This test will print out the selling price of each item:")
     try:
-        print(f"Sell_price of item1: {Item.get_sell_price(item1)}")
-        print(f"Sell_price of item2: {Item.get_sell_price(item2)}")
-        print(f"Sell_price of item3: {Item.get_sell_price(item3)}")
-        print(f"Sell_price of item4: {Item.get_sell_price(item4)}")
+        print(f"Sell_price of item1: £{Item.get_sell_price(item1)}")
+        print(f"Sell_price of item2: £{Item.get_sell_price(item2)}")
+        print(f"Sell_price of item3: £{Item.get_sell_price(item3)}")
+        print(f"Sell_price of item4: £{Item.get_sell_price(item4)}")
     except:
         print("Failed unexpectedly")
 
@@ -540,7 +545,7 @@ def test_purchase_available_items():
     try:
         basket = ["Apple", "Carrot", "Black t-shirt"]
         total_cost = item_manager.purchase_available_items(basket, True)
-        print(round(total_cost, 2))
+        print(f"£{round(total_cost,2)}")
     except:
         print("Failed unexpectedly")
 

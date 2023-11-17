@@ -51,6 +51,12 @@ class Item:
         if self.sell_price >= 0:  # Ensures the sell_price is equal to or more than 0
             return self.sell_price
 
+    """
+    Everything I learnt below are from these links:
+    - https://ncl.instructure.com/courses/49935/pages/practical-5-dot-1-solutions?module_item_id=3031807
+    - https://ncl.instructure.com/courses/49935/pages/practical-6-dot-1-solutions?module_item_id=3031838    
+    """
+
     def __str__(self):
         # Creates a string representation of the item and returns it
         return "({},{},{},{},{})".format(self.name, self.category, self.perishable, self.stock, self.sell_price)
