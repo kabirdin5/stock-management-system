@@ -1,12 +1,12 @@
 class Item:
     def __init__(self, name, category, perishable, stock, sell_price):
         """
-        Initialises an Item object with these parameters:
-        - name (str): Name of the item
-        - category (str): Category of the item
-        - perishable (bool): Perishable status of the item
-        - stock (int): Stock number of the item
-        - sell_price (float): Selling price of the item
+        Initialises the Item object with these parameters:
+        :param name(str): Name of the item
+        :param category(str): Category of the item
+        :param perishable(bool): Perishable status of the item
+        :param stock(int): Stock number of the item
+        :param sell_price(float): Selling price of the item
         """
         # Checks if name is a string
         if not isinstance(name, str):
@@ -57,13 +57,13 @@ class Item:
 
     def __repr__(self):
         # Creates a more official string representation of the item and returns it
-        return str(Item(self.get_name, self.category, self.perishable, self.stock, self.sell_price))
+        return str(Item(self.name, self.category, self.perishable, self.stock, self.sell_price))
 
     def __eq__(self, other):
         """
-        - Checks if there are 2 items equal to each other, based on their names
-        - The "other" parameter represents another item to compare
-        - Returns True if the items are equal, otherwise False
+        Checks if there are 2 items equal to each other, based on their names
+        :param other: represents another item to compare
+        :return: False if items are not equal, True if items are equal
         """
         if isinstance(other, Item):
             return self.name == other.name
