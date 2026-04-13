@@ -1,5 +1,3 @@
-<h1>CSC1034: Case Study 2</h1>
-
 <h2>Kabir Din's stock management and purchasing system</h2>
 
 <p>There are 2 classes that contain numerous methods. Each method has a vital part in this stock 
